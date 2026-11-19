@@ -1,0 +1,92 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: #12081f;
+  background-image: linear-gradient(160deg, #1c0b38 0%, #12081f 55%, #2b0a3d 100%);
+  color: #f4eefc;
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.topbar {
+  display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+  padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.brand { font-size: 22px; font-weight: 900; font-style: italic; letter-spacing: 0.02em; }
+.brand-mark {
+  display: inline-block; background: linear-gradient(135deg, #ffd23e, #ff7a1a);
+  color: #160a24; border-radius: 6px; padding: 2px 8px; margin-right: 6px;
+  font-style: normal;
+}
+.tagline-top { margin: 0; color: #c9b8e0; font-size: 13px; }
+.app {
+  display: flex; gap: 28px; align-items: flex-start; justify-content: center;
+  padding: 24px; flex-wrap: wrap;
+}
+.preview-wrap { flex: 1 1 420px; max-width: 640px; text-align: center; }
+#cover {
+  width: 100%; height: auto; display: block;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.14);
+  border-radius: 4px; touch-action: none; cursor: grab;
+}
+#cover:active { cursor: grabbing; }
+.hint { color: #b7a6cc; font-size: 13px; margin: 12px 0 0; }
+.controls {
+  flex: 0 1 360px; display: flex; flex-direction: column; gap: 16px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 20px;
+}
+.controls h1 { margin: 0; font-size: 24px; font-style: italic; }
+.controls h2 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: #e8b6ff; }
+.field { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: 13px; }
+.field input {
+  font: inherit; font-weight: 400; padding: 9px 10px; color: #fff;
+  background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px;
+}
+.field input:focus { outline: 2px solid #ff2e88; outline-offset: 1px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 13px; font-weight: 700; padding: 7px 11px; cursor: pointer;
+  color: #f4eefc; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22); border-radius: 999px;
+}
+.chip.active { background: linear-gradient(135deg, #ffd23e, #ff7a1a); color: #160a24; border-color: transparent; }
+.panel-row {
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
+  padding: 12px; margin-bottom: 10px; background: rgba(0,0,0,0.25);
+}
+.panel-row h3 { margin: 0 0 4px; font-size: 14px; }
+.panel-label { margin: 0 0 8px; color: #c9b8e0; font-size: 13px; }
+.file-btn {
+  display: inline-block; font-size: 13px; font-weight: 700; padding: 7px 12px;
+  background: #ff2e88; color: #fff; border-radius: 6px; cursor: pointer; margin-bottom: 8px;
+}
+.sample-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.sample-btn {
+  font: inherit; font-size: 12px; font-weight: 700; padding: 5px 9px; cursor: pointer;
+  color: #ffe9f4; background: rgba(255,46,136,0.18);
+  border: 1px solid rgba(255,46,136,0.5); border-radius: 6px;
+}
+.zoom-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+.zoom-label input { flex: 1; accent-color: #ff2e88; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+button.primary {
+  font: inherit; font-weight: 800; padding: 11px 18px; cursor: pointer;
+  background: linear-gradient(135deg, #ffd23e, #ff7a1a); color: #160a24;
+  border: 0; border-radius: 8px;
+}
+.actions button:not(.primary) {
+  font: inherit; font-weight: 700; padding: 11px 14px; cursor: pointer;
+  color: #f4eefc; background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+}
+#status { margin: 0; color: #9be7c4; font-size: 13px; min-height: 1.2em; }
+.fineprint { margin: 0; color: #8f7ba8; font-size: 12px; }
+
+/* Screenshot scenes: the cover fills the whole viewport. */
+body.shot-cover { background: #12081f; }
+body.shot-cover .topbar, body.shot-cover .controls, body.shot-cover .hint { display: none; }
+
+/* Editor screenshot: shrink the preview so the whole cover fits in frame. */
+body.shot-editor #cover { width: min(100%, 46vh); margin: 0 auto; }
+body.shot-cover .app { padding: 0; display: block; }
+body.shot-cover .preview-wrap { max-width: none; }
+body.shot-cover #cover { width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; border-radius: 0; }
